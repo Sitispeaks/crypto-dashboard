@@ -15,3 +15,10 @@ How Celery works, and why you need Redis (or RabbitMQ):
 
 UI
 <img src="https://raw.githubusercontent.com/Sitispeaks/crypto-dashboard/master/dashboard.png?token=AOLGMVCMSDKPYYAVCM5QQ3DBCUOPW" alt="My cool logo" width="auto"/>
+
+
+### Install redis
+https://github.com/tporadowski/redis/releases
+
+### Or you can use redis images in docker for the same
+ ```docker pull redislabs/redis```
