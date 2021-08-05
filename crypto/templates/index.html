@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+    .fall{
+        color:red;
+    }
+    .raise{
+        color:limegreen;
+    }
+    </style>
+
+    <title>CMC Clone</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto mt-5">
+                <h3 class="mb-5">Cryptocurencies</h3>
+                {% verbatim %}
+                    <div id="app">
+                    
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Market Cap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr v-for="coin in coins" :key="coin.id">
+                                        <td class="align-middle">{{ coin.rank }}</td>
+                                        <td class="align-middle">
+                                            <img v-bind:src="coin.image" class="px-2" width="50" />{{coin.name }}
+                                        </td>
+                                        <td class="align-middle" :class="{'raise': coin.state==='raise','fall': coin.state==='fall'}">{{ coin.price }}</td>
+                                        <td class="align-middle">{{ coin.market_cap }}</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+    <script>
+        const { createApp }=Vue;
+
+        const CoinsApp={
+            data(){
+                return {
+                    coin : "hello",
+                    coins: null
+                }
+            },
+            created(){
+                const socket = new WebSocket(`ws://${window.location.host}/ws/coins/`);
+
+                let _this = this;
+
+                socket.onmessage=function(event) {
+                    _this.coins = JSON.parse(event.data);
+                    console.log(_this.coins);
+                }
+            }
+
+        }
+        createApp(CoinsApp).mount('#app')
+        
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        })
+    </script>
+</body>
+</html>

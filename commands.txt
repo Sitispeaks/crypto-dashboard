@@ -1,0 +1,9 @@
+#to start celery workers
+celery -A crypto.celery worker --pool=solo -l info
+
+compulsery reuirements: celery==5.0.5 ,django-celery-beat==2.2.1
+django-celery-results==2.2.0
+	
+
+# to start celery beat scheduler
+celery -A crypto beat --loglevel=debug --scheduler django_celery_beat.schedulers:DatabaseScheduler								
