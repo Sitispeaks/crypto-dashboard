@@ -1,6 +1,6 @@
 # crypto-dashboard
 ## Realtime crypto-dashboard made with celery, redis and websockets.
-This app fetches data peiodically from external API and then the work of Celery begins.
+This app fetches data peiodically from external APIs using Celery Workers.
 
 How Celery works, and why you need Redis (or RabbitMQ):
 
