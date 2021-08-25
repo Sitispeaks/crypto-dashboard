@@ -23,21 +23,23 @@ def get_coins_data():
         obj.name = coin['name']
         obj.symbol= coin['symbol']
         
-        if obj.price > coin['current_price']:
-            state='fall'
-        elif obj.price < coin['current_price']:
-            state='raise'
-        elif obj.price == coin['current_price']:
-            state='same'
+        # if obj.price > coin['current_price']:
+        #     state='fall'
+        # elif obj.price < coin['current_price']:
+        #     state='raise'
+        # elif obj.price == coin['current_price']:
+        #     state='same'
 
         obj.price = coin['current_price']
         obj.rank = coin['market_cap_rank']
         obj.image= coin['image']
         obj.market_cap= coin['market_cap']
+        obj.price_change_percentage_24h= coin['price_change_percentage_24h']
+        obj.total_volume= coin['total_volume']
         obj.save()
 
         new_data=model_to_dict(obj)
-        new_data.update({'state':state})
+        # new_data.update({'state':state})
 
         coins.append(new_data)
     

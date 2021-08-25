@@ -8,7 +8,9 @@ class Coin(models.Model):
     image=models.URLField(blank=True,null=True)
     rank = models.IntegerField(default=0,blank=True)
     market_cap=models.BigIntegerField(default=0,blank=True)
-
+    total_volume=models.BigIntegerField(default=0,blank=True)
+    price_change_percentage_24h=models.FloatField(default=0,blank=True)
+    
     def __str__(self):
         return str(self.name)
 
