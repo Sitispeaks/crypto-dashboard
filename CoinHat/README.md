@@ -1,8 +1,7 @@
-## CoinMoon
-CoinMoon is a cryptocurrency price tracking application made with React.
+To start the app
 
-## Live Preview
-https://cryptocurrencyprices.web.app/
+```npm init```
 
-## Learn How to Build It
-https://www.youtube.com/watch?v=GHC7KrmO4oY
+```npm install```
+
+```npm start```
