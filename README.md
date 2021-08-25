@@ -14,11 +14,12 @@ How Celery works, and why you need Redis (or RabbitMQ):
 <b>After getting the data, it is then sent to frontend via socket connection using django-channels.Thats why we don't have to refresh the browser to get data.</b>
 
 # UI
-<img src="https://raw.githubusercontent.com/Sitispeaks/crypto-dashboard/master/dashboard.png?token=AOLGMVCMSDKPYYAVCM5QQ3DBCUOPW" alt="My cool logo" width="auto"/>
+![updated_dasboard](https://user-images.githubusercontent.com/60188244/130830842-0fa5be21-e281-4efe-a7b2-a29916b61d95.png)
 
-# DEMO
 
-https://user-images.githubusercontent.com/60188244/130129556-66800d53-1dc5-4107-af40-f61ff5ff6160.mp4
+<!-- # DEMO -->
+
+<!-- https://user-images.githubusercontent.com/60188244/130129556-66800d53-1dc5-4107-af40-f61ff5ff6160.mp4 -->
 
 
 
